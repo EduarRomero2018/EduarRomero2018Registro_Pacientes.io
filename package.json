@@ -1,0 +1,15 @@
+{
+  "name": "javascript_crud",
+  "version": "1.0.0",
+  "description": "JavaScript_Crud",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eduardo Romero",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.1",
+    "sweetalert2": "^11.7.27"
+  }
+}
