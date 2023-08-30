@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Tangerine&display=swap');
+
+:root {
+    --color_primario: #e5826d;
+    --fondo_color_logo: #323637;
+    --color_titulos: #8f6741;
+    --blanco_fondo: #fbfcfe;
+    --blanco_frontal: #ffffff;
+    --tipografia_principal: 'tangerine';
+    --Alumni: 'Alumni Sans Pinstripe', sans-serif;
+    --Big: 'Big Shoulders Display', cursive;
+    --Wire: 'Wire One', sans-serif;
+    /* 1280x500 -> Medida para las imagnes */
+}
+
+.size_img img{
+    width: 80px;
+    border-radius: 8px;
+}
+
+.colum .new_font{
+    font-family:var(--Alumni);
+    font-size: 90px;
+}
+
+.colum p{
+    font-family:var(--Alumni);
+    font-size: 40px;
+}
+
+.img_jumbotrom img{
+    width:400px;
+    border-radius: 40px 20px 40px 20px;
+}
+
+.stylos_colum .agregar{
+    font-family: var(--Alumni);
+    text-align: center !important ;
+    font-size: 40px;
+}

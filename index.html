@@ -9,7 +9,171 @@
     <title>JavaScript</title>
 </head>
 
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand size_img" href="./index.html">
+                <img src="./assets/img/mi_logo.jpg" alt="Logo" class="d-inline-block align-text-center">
+                Registro de Pacientes
+            </a>
+        </div>
+    </nav>
 
+    <div class="container mt-5">
+        <div class="row colum text-center">
+            <div class="col-md-8 mb-3">
+                <div class="p-5 bg-light rounded-3">
+                    <h1 class="new_font display-5 fw-bold">Registro de pacientes</h1>
+                    <p>Utiliza la herramienta para <b>Agregar, Listar, Modificar</b> y
+                        <b>Eliminar </b> registros de manera oportuna
+                    </p>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-4 img_jumbotrom">
+                <img src="./assets/img/img_jumbotrom.jpg" alt="Logo" class="img-fluid">
+            </div>
+        </div>
+        <!-- Sesion Crear Nuevo paciente -->
+        <div class="row">
+            <div class="col-md-12 stylos_colum">
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne">
+                                <strong> CREAR NUEVO PACIENTE </strong>
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <h3 class="mt-2 agregar"><strong>Crear Usuario</strong></h3>
+                            </div>
+
+                            <div class="row m-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="nombres"
+                                            placeholder="name@example.com">
+                                        <label>Nombres</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="apellidos_paciente"
+                                            placeholder="Password">
+                                        <label>Apellidos</label>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" id="email_paciente"
+                                            placeholder="name@example.com">
+                                        <label>Correo Electronico</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="direccion_paciente"
+                                            placeholder="Password">
+                                        <label>Dirección</label>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 text-sm">
+                                        <select type="text" id="tipo_documento"
+                                            class="form-select form-select-lg mb-3 form-control">
+                                            <option class="text-sm-start" selected>Tipo Documento</option>
+                                            <option value="CC">Cédula de Ciudadania</option>
+                                            <option value="RC">Registro Civil</option>
+                                            <option value="TI">Tarjeta de Identidad</option>
+                                            <option value="DE">Documento de Extranjeria</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="numero_documento"
+                                            placeholder="Password">
+                                        <label id="numero_documento">Numero de Documento</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 text-center mt-2">
+                                    <button id="save_form" type="button"
+                                        class="btn btn-outline-secondary btn-lg">Registrar Nuevo Paciente</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button id="listar_pacientes" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseTwo">
+                                <strong> LISTAR </strong>
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <div class="col-md-12 text-start mt-2">
+                                    <button id="listar_pacintes" type="button" onclick="ListarPacientes()"  class="btn btn-outline-secondary btn-lg">Listar pacientes Guardados en el LocalStorage</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseThree">
+                                <strong> ACTUALIZAR </strong>
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until
+                                the collapse plugin adds the appropriate classes that we use to style each element.
+                                These classes control the overall appearance, as well as the showing and hiding via CSS
+                                transitions. You can modify any of this with custom CSS or overriding our default
+                                variables. It's also worth noting that just about any HTML can go within the
+                                <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseThree">
+                                <strong> ELIMINAR </strong>
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapsefor" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until
+                                the collapse plugin adds the appropriate classes that we use to style each element.
+                                These classes control the overall appearance, as well as the showing and hiding via CSS
+                                transitions. You can modify any of this with custom CSS or overriding our default
+                                variables. It's also worth noting that just about any HTML can go within the
+                                <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/get_data.js" type="text/javascript"></script>
 </body>
 
 </html>
