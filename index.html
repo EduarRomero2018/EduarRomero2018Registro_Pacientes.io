@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!-- navbar -->
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand size_img" href="./index.html">
@@ -35,6 +36,7 @@
                 <img src="./assets/img/img_jumbotrom.jpg" alt="Logo" class="img-fluid">
             </div>
         </div>
+
         <!-- Sesion Crear Nuevo paciente -->
         <div class="row">
             <div class="col-md-12 stylos_colum">
@@ -52,66 +54,71 @@
                                 <h3 class="mt-2 agregar"><strong>Crear Usuario</strong></h3>
                             </div>
 
-                            <div class="row m-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="nombres"
-                                            placeholder="name@example.com">
-                                        <label>Nombres</label>
+                            <form action="" id="form_validate">
+                                <div class="row m-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="nombres" name="nombres"
+                                                placeholder="name@example.com">
+                                            <label>Nombres</label>
+                                        </div>
+                                    <div class="col-md-6" id="mensaje_error">
+
+                                        </div>
+
                                     </div>
 
-                                </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="apellidos_paciente" name="apellidos"
+                                                placeholder="Password">
+                                            <label>Apellidos</label>
+                                        </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="apellidos_paciente"
-                                            placeholder="Password">
-                                        <label>Apellidos</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" id="email_paciente" name="email"
+                                                placeholder="name@example.com">
+                                            <label>Correo Electronico</label>
+                                        </div>
+
                                     </div>
 
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="email_paciente"
-                                            placeholder="name@example.com">
-                                        <label>Correo Electronico</label>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="direccion_paciente" name="direcion"
+                                                placeholder="Password">
+                                            <label>Dirección</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-3 text-sm">
+                                            <select type="text" id="tipo_documento"
+                                                class="form-select form-select-lg mb-3 form-control">
+                                                <option class="text-sm-start" selected>Tipo Documento</option>
+                                                <option value="CC">Cédula de Ciudadania</option>
+                                                <option value="RC">Registro Civil</option>
+                                                <option value="TI">Tarjeta de Identidad</option>
+                                                <option value="DE">Documento de Extranjeria</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="number" class="form-control" id="numero_documento" name="numero_documento"
+                                                placeholder="Password">
+                                            <label id="numero_documento">Numero de Documento</label>
+                                        </div>
                                     </div>
 
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="direccion_paciente"
-                                            placeholder="Password">
-                                        <label>Dirección</label>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating mb-3 text-sm">
-                                        <select type="text" id="tipo_documento"
-                                            class="form-select form-select-lg mb-3 form-control">
-                                            <option class="text-sm-start" selected>Tipo Documento</option>
-                                            <option value="CC">Cédula de Ciudadania</option>
-                                            <option value="RC">Registro Civil</option>
-                                            <option value="TI">Tarjeta de Identidad</option>
-                                            <option value="DE">Documento de Extranjeria</option>
-                                        </select>
+                                    <div class="col-md-12 text-center mt-2">
+                                        <button id="save_form" value="si funciona boton"
+                                            class="btn btn-outline-secondary btn-lg">Registrar Nuevo Paciente</button>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="number" class="form-control" id="numero_documento"
-                                            placeholder="Password">
-                                        <label id="numero_documento">Numero de Documento</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12 text-center mt-2">
-                                    <button id="save_form" type="button"
-                                        class="btn btn-outline-secondary btn-lg">Registrar Nuevo Paciente</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
 
@@ -131,31 +138,25 @@
                                 <br>
 
                                 <section id="visualizarpacientes">
-
-
-                                <!-- <div class="table-responsive">
-                                    <table class="table table-primary">
-                                        <thead>
+                                <div class="table-responsive">
+                                    <table class="table table-responsive table-bordered">
+                                        <thead class="table-primary">
                                             <tr>
-                                                <th scope="col">Column 1</th>
-                                                <th scope="col">Column 2</th>
-                                                <th scope="col">Column 3</th>
+                                                <th scope="col">Nombres</th>
+                                                <th scope="col">Apellidos</th>
+                                                <th scope="col">Correo</th>
+                                                <th scope="col">Direccion Paciente</th>
+                                                <th scope="col">Tipo Documento</th>
+                                                <th scope="col">Numero Documento</th>
+                                                <th scope="col">Editar</th>
+                                                <th scope="col">Eliminar</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr class="">
-                                                <td scope="row">R1C1</td>
-                                                <td>R1C2</td>
-                                                <td>R1C3</td>
-                                            </tr>
-                                            <tr class="">
-                                                <td scope="row">Item</td>
-                                                <td>Item</td>
-                                                <td>Item</td>
-                                            </tr>
+                                        <tbody id="date_object">
                                         </tbody>
                                     </table>
-                                </div> -->
+                                </div>
+
                             </section>
                             </div>
                         </div>
@@ -203,6 +204,7 @@
         </div>
     </div>
     <script src="./public/js/get_data.js" type="text/javascript"></script>
+    <!-- <script src="./public/js/validation.js" type="text/javascript"></script> -->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="./node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
