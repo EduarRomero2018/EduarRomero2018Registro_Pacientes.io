@@ -42,3 +42,7 @@
 #update_register{
     display: none;
 }
+
+.bg_color {
+    background-color: #5283d7 !important;
+}
