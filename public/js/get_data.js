@@ -33,6 +33,22 @@ const dtn_delete = document.querySelector("#update_register");
 
 button_guardar.addEventListener('click', datospacientes);
 
+nombres.addEventListener('blur', function(events){
+
+let valor_campo = events.target.value
+
+if (valor_campo.length === 0) {
+
+debugger
+
+
+}
+
+});
+
+
+
+button_guardar.addEventListener('click', (datospacientes));
 // Creamos nuestra función
 function datospacientes(event) {
   event.preventDefault();
@@ -125,7 +141,11 @@ function ImprimirListado() {
                                                 <td>${registro.tipo_documento}</td>
                                                 <td>${registro.numero_documento}</td>
                                                 <td><button id="update_row" type="button" class="btn btn-outline-secondary btn btn-warning" onClick="GetIndex(${index})">Editar</button></td>
-                                                <td><button id="delete_register" type="button" value ="delete" class="btn btn-outline-secondary btn btn-danger" onClick="deleteregister(${index})">Eliminar</button></td>
+                                                <td>
+
+                                                <button id="delete_register" type="button" value ="delete" class="btn btn-outline-secondary btn btn-danger" onClick="deleteregister(${index})">Eliminar</button>
+
+                                                </td>
                                             </tr>
         `
     }).join('')
