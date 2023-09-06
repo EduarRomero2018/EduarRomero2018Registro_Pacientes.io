@@ -9,7 +9,6 @@ window.addEventListener('load', function() {
       'warning'
     )
   }
-
 });
 
 const nombres = document.querySelector("#nombres");
@@ -29,9 +28,10 @@ const button_guardar = document.querySelector("#save_form");
 const btn_actualizar = document.querySelector("#update_register");
 
 // obtener el id del boton actualizar paciente
+
+// Capturamos el id del boton actualizar
 const dtn_delete = document.querySelector("#update_register");
 
-button_guardar.addEventListener('click', datospacientes);
 
 nombres.addEventListener('blur', function(events){
 
@@ -56,27 +56,25 @@ function datospacientes(event) {
   // Obtenemos los registros existentes del localStorage
   let registrosAlmacenados = JSON.parse(localStorage.getItem("clave"))
 
-  // Creamos nuestro objeto
-  const nuevoRegistro = {
-    nombre: nombres.value,
-    apellidos: apellidos.value,
-    email_paciente: email_paciente.value,
-    direccion_paciente: direccion_paciente.value,
-    tipo_documento: tipo_documento.value,
-    numero_documento: numero_documento.value
-  }
-
   // validamos si viene vacio o no
   if (registrosAlmacenados === null) {
+
     registrosAlmacenados = [];
 
-    registrosAlmacenados.push(nuevoRegistro);
+  }
 
-  } else {
+    // Creamos nuestro objeto
+    const nuevoRegistro = {
+      nombre: nombres.value,
+      apellidos: apellidos.value,
+      email_paciente: email_paciente.value,
+      direccion_paciente: direccion_paciente.value,
+      tipo_documento: tipo_documento.value,
+      numero_documento: numero_documento.value
+    }
 
     // Agregar el nuevo registro al arreglo
     registrosAlmacenados.push(nuevoRegistro);
-  }
 
   // Guardar la lista actualizada en el localStorage
   localStorage.setItem("clave", JSON.stringify(registrosAlmacenados));
@@ -95,7 +93,7 @@ function datospacientes(event) {
   apellidos.value = "";
   email_paciente.value = "";
   direccion_paciente.value = "";
-  tipo_documento.value = "Tipo Documento";
+  tipo_documento.value = "";
   numero_documento.value = "";
 }
 
@@ -228,40 +226,44 @@ function UpdateRegister(params) {
   button_guardar.style.display = "block";
 }
 
-
+deleteregister(index);
 // Agrega una función para eliminar el registro con el índice proporcionado
 function deleteregister(index) {
 
   let registrosAlmacenados = JSON.parse(localStorage.getItem("clave"));
 
   if (registrosAlmacenados && registrosAlmacenados.length >= index) {
+    const registro = registrosAlmacenados[index]; // Obtén el objeto en la posición index
+    const numeroDocumento = registro.numero_documento; // Accede a la propiedad numero_documento
 
-    // Elimina el registro del arreglo utilizando el índice
-    registrosAlmacenados.splice(index, 1);
+    // console.log(documento);
 
-    // Swal.fire({
-    //   title: 'Are you sure?',
-    //   text: "You won't be able to revert this!",
-    //   icon: 'warning',
-    //   showCancelButton: true,
-    //   confirmButtonColor: '#3085d6',
-    //   cancelButtonColor: '#d33',
-    //   confirmButtonText: 'Yes, delete it!'
-    // }).then((result) => {
-    //   if (result.isConfirmed) {
-    //     Swal.fire(
-    //       'Deleted!',
-    //       'Your file has been deleted.',
-    //       'success'
-    //     )
-    //   }
-    // })
+    Swal.fire({
+      title: 'Eliminar',
+      text: (`Seguro que quiero eliminar este registro con identificación!: ${numeroDocumento}`),
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Eliminar!'
 
-    // Actualiza el localStorage con la tabla actualizada
-    localStorage.setItem("clave", JSON.stringify(registrosAlmacenados));
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Elimina el registro del arreglo utilizando el índice
+        registrosAlmacenados.splice(index, 1);
+        Swal.fire(
+          'Eliminado!',
+          'El registro fue eliminado con éxito',
+          'success'
+          )
 
-    // Vuelve a imprimir el listado actualizado
-    ImprimirListado();
+          // Actualiza el localStorage con la tabla actualizada
+          localStorage.setItem("clave", JSON.stringify(registrosAlmacenados));
+
+          // Vuelve a imprimir el listado actualizado
+          ImprimirListado();
+      }
+    })
 
   } else {
     // Manejar el caso en el que el índice no es válido o no hay registros
@@ -273,17 +275,3 @@ function deleteregister(index) {
     });
   }
 }
-
-
-
-
-
-
-
-
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/previousElementSibling
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/nextElementSibling
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/lastElementChild
-// https://www.instagram.com/p/CurOIHCvZrI/?img_index=10
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/firstElementChild
-// https://www.youtube.com/watch?v=zeb5PsxWijY&t=2895s
